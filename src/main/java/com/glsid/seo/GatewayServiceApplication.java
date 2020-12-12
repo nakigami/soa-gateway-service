@@ -17,7 +17,7 @@ public class GatewayServiceApplication {
     }
 
 
-    @Bean
+    // Static Routing
     RouteLocator routeLocator(RouteLocatorBuilder builder) {
 
         return builder.routes()
@@ -26,6 +26,8 @@ public class GatewayServiceApplication {
                 .build();
     }
 
+    // Dynamic Routing
+    @Bean
     DiscoveryClientRouteDefinitionLocator definitionLocator(ReactiveDiscoveryClient rdc, DiscoveryLocatorProperties dlp) {
         return new DiscoveryClientRouteDefinitionLocator(rdc, dlp);
     }
